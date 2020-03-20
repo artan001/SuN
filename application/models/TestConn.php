@@ -7,19 +7,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 /**
- * Description of Pages
+ * Description of TestConn
  *
  * @author Artan.s
  */
-class Pages extends CI_Controller{
+class TestConn extends CI_Model{
+    
     public function __construct() {
         parent::__construct();
-        $this->load->model('TestConn');
     }
-    public function index(){
-//        $query = $this->TestConn->Test();
-        $query['page'] = $this->TestConn->Test();
-        $this->load->view('pages/newEmptyPHPWebPage',$query);
+    public function Test(){
+        $sql = 'SELECT * FROM stock';
+        $query = $this->db->query($sql);
+        $query = $query ->result();
+        return $query;
+        
     }
-    //put your code here
 }
