@@ -14,12 +14,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pages extends CI_Controller{
     public function __construct() {
         parent::__construct();
-        $this->load->model('TestConn');
     }
     public function index(){
-//        $query = $this->TestConn->Test();
-        $query['page'] = $this->TestConn->Test();
-        $this->load->view('pages/newEmptyPHPWebPage',$query);
+
+        $this->load->view('welcome_message');
     }
-    //put your code here
 }
